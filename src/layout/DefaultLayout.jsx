@@ -90,17 +90,6 @@ function DefaultLayout() {
       </Sider>
       <Content className={clsx(styles.content)}>
         <Outlet />
-        <Footer
-          style={{
-            textAlign: 'center',
-            background: '#fff',
-            position: 'fixed',
-            width: '100%',
-            bottom: 0,
-          }}
-        >
-          Ant Design ©2023 Created by Me
-        </Footer>
       </Content>
     </Layout>
   );

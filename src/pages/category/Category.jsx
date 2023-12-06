@@ -121,11 +121,10 @@ const Category = () => {
     setValueEdit(undefined);
     setIsEdit(false);
   };
-
   const handleOk = () => {
     form.validateFields().then(async (value) => {
       try {
-        const data = dispatch(
+        const data = await dispatch(
           requestUpdateCategorys({
             id: valueEdit?._id,
             ...valueEdit,

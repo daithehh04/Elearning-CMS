@@ -21,7 +21,6 @@ import styles from './Courses.module.scss';
 import { useForm } from 'antd/es/form/Form';
 import { unwrapResult } from '@reduxjs/toolkit';
 import TTCSconfig from '../../helpers/config';
-import { convertSlug } from '../../utils/slug';
 import TinymceEditor from '../../components/TinymceEditor/TinymceEditor';
 import UploadImg from '../../components/UploadImg/UploadImg';
 import { requestLoadCategorys } from '../../stores/middlewares/categoryMiddleware';
@@ -38,6 +37,7 @@ import {
 } from '../../stores/middlewares/courseMiddleware';
 import { useDispatch } from 'react-redux';
 import clsx from 'clsx';
+import { convertSlug } from '../../utils/slug';
 
 const normFile = (e) => {
   console.log('Upload event:', e);
@@ -212,7 +212,7 @@ const Courses = () => {
       try {
         const data = await dispatch(
           requestUpdateCourse({
-            id: valueEdit?.id,
+            id: valueEdit?._id,
             ...value,
             des: descRef?.current?.getContent(),
             avatar: dataUpload,
@@ -540,9 +540,9 @@ const Courses = () => {
                 ]}
               >
                 <Input
-                  onChange={(e) => {
-                    form.setFieldsValue({ slug: convertSlug(e.target.value) });
-                  }}
+                // onChange={(e) => {
+                //   form.setFieldsValue({ slug: convertSlug(e.target.value) });
+                // }}
                 />
               </Form.Item>
 

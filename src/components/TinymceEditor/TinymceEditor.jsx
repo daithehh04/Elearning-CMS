@@ -25,9 +25,6 @@ const TinymceEditor = ({
           editorRef.current = editor;
         }
       }}
-      onEditorChange={(e) => {
-        // if (onChange) onChange(e)
-      }}
       onChange={(e, editor) => {
         if (onChange) onChange(e, editor);
       }}
@@ -53,12 +50,33 @@ const TinymceEditor = ({
           formData.append('file', blobInfo.blob(), blobInfo.filename());
           xhr.send(formData);
         },
-        plugins:
-          'print preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen image link media template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists wordcount imagetools textpattern noneditable help charmap quickbars emoticons',
+        plugins: [
+          'advlist',
+          'autolink',
+          'lists',
+          'link',
+          'image',
+          'charmap',
+          'preview',
+          'anchor',
+          'searchreplace',
+          'visualblocks',
+          'code',
+          'fullscreen',
+          'insertdatetime',
+          'media',
+          'table',
+          'code',
+          'help',
+          'wordcount',
+        ],
         imagetools_cors_hosts: ['picsum.photos'],
         menubar: 'file edit view insert format tools table help',
         toolbar:
-          'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media template link anchor codesample | ltr rtl',
+          'undo redo | blocks | ' +
+          'bold italic forecolor | alignleft aligncenter ' +
+          'alignright alignjustify | bullist numlist outdent indent | ' +
+          'removeformat | help',
         toolbar_sticky: true,
         autosave_ask_before_unload: true,
         autosave_interval: '30s',

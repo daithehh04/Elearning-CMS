@@ -46,6 +46,7 @@ const CourseDetail = () => {
   const [isOpenEdit, setIsOpenEdit] = useState(false);
   const topicParent = useRef();
 
+  console.log('topics', topics);
   const statusTopic = [
     {
       value: 1,

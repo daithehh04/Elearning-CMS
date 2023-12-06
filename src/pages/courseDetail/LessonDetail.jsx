@@ -171,12 +171,12 @@ export const LessonCourse = memo((prop) => {
       message.error('vui lòng upload video');
       return;
     }
-
     try {
       const actionResult = await dispatch(
         requestUpdateTopic({
           ...dataTopic,
           ...value,
+          idCourse: courseInfo._id,
           des: descRef?.current?.getContent(),
           video,
           updateDate: moment().valueOf(),
