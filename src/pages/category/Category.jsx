@@ -123,6 +123,7 @@ const Category = () => {
   };
   const handleOk = () => {
     form.validateFields().then(async (value) => {
+      console.log('valueFormDataUpload', dataUpload);
       try {
         const data = await dispatch(
           requestUpdateCategorys({
@@ -130,7 +131,7 @@ const Category = () => {
             ...valueEdit,
             ...value,
             des: descRef?.current?.getContent(),
-            avatar: dataUpload,
+            avatar: dataUpload.data,
           })
         );
         unwrapResult(data);

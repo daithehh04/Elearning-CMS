@@ -215,7 +215,7 @@ const Courses = () => {
             id: valueEdit?._id,
             ...value,
             des: descRef?.current?.getContent(),
-            avatar: dataUpload,
+            avatar: dataUpload.data,
           })
         );
         unwrapResult(data);

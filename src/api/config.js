@@ -24,13 +24,6 @@ export const ApiConfig = async (
   };
   if (apiPrefix !== PREFIX_API)
     config.baseURL = `${ENDPOINT_LOCAL}/${apiPrefix}`;
-  //  if (method === 'post') {
-  //     return axiosInstance.post(`${url}`, payload, config)
-  //         .then(response => {
-  //             return response
-  //         })
-  //         .catch(error => error);
-  // }
   return axiosInstance.request(config);
 };
 
@@ -55,15 +48,5 @@ export const ApiUploadFile = async (
     headers: {
       'Content-Type': 'multipart/form-data',
     },
-    // onUploadProgress: (event: any) => {
-    //     const percent = Math.floor((event.loaded / event.total) * 100);
-    //     if (setProgress && onProgress) {
-    //         setProgress(percent);
-    //         // if (percent === 100) {
-    //         //     setTimeout(() => setProgress(0), 1000);
-    //         // }
-    //         onProgress({ percent: (event.loaded / event.total) * 100 });
-    //     }
-    // },
   });
 };

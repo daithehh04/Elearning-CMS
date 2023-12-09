@@ -64,9 +64,10 @@ const UploadImg = ({ defaultUrl, onChangeUrl }) => {
       <Upload
         customRequest={async (options) => {
           const { onSuccess = () => {}, onError = () => {}, file } = options;
+          console.log('options', options);
           try {
             const res = await apiUploadFile(file);
-            onSuccess('oke');
+            onSuccess(res);
           } catch (error) {
             onError(error);
           }
